@@ -1,0 +1,27 @@
+{
+  "name": "huanle-club-client",
+  "version": "1.0.0",
+  "description": "scroll-select-uni-demo",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.intra.123u.com:php-projects/huanle-club-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/html5plus": "^1.0.1",
+    "@types/uni-app": "^1.4.3",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-vue": "^6.2.2"
+  },
+  "dependencies": {
+    "@dcloudio/uni-helper-json": "^1.0.5",
+    "vue": "^2.6.11"
+  }
+}

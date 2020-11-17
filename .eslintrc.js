@@ -1,0 +1,53 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2020: true,
+  },
+  extends: [
+    'plugin:vue/essential',
+    'airbnb-base',
+  ],
+  globals: {
+    wx: true,
+    uni: true,
+    getCurrentPages: true,
+    getApp: true,
+    plus: true,
+  },
+  parserOptions: {
+    ecmaVersion: 11,
+    sourceType: 'module',
+  },
+  plugins: [
+    'vue',
+  ],
+  rules: {
+    'vue/no-v-html': 'off',
+    'brace-style': [2, '1tbs', {
+      allowSingleLine: true,
+    }],
+    'vue/name-property-casing': ['error', 'PascalCase'],
+    'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
+    'max-len': [0],
+    'no-param-reassign': [0],
+    'class-methods-use-this': [0],
+    'no-plusplus': [0],
+    'func-names': [0],
+    'no-underscore-dangle': [0],
+    'no-control-regex': [0],
+    'no-unused-expressions': [0],
+    'global-require': [0],
+    'prefer-template': [0],
+    'no-restricted-syntax': [0],
+    'import/order': 0,
+    'linebreak-style': 0,
+    'import/prefer-default-export': 0,
+    'no-shadow': 0,
+    'no-bitwise': 0,
+    semi: ['error', 'never'],
+    'no-useless-escape': 0,
+    'consistent-return': 0,
+    'no-useless-return': 0,
+    'import/no-unresolved': 0,
+  },
+}

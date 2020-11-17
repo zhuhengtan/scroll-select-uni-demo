@@ -1,0 +1,101 @@
+<template>
+  <view>
+    <nav-bar
+      :bgColor="['#101013', '#2c2d31']"
+      fontColor="#FFF"
+      bgColorAngle="180"
+      :title="$t('personalCenter.message.title')"
+    ></nav-bar>
+    <mescroll-uni
+      :up="upOption"
+      @init="onMescrollInit"
+      @down="downCallback"
+      @up="upCallback"
+      :top="mescrollTop"
+    >
+      <view class="cell-group">
+        <block v-for="item in dataList" :key="item.id">
+          <view class="cell">
+
+          </view>
+        </block>
+      </view>
+    </mescroll-uni>
+  </view>
+</template>
+
+<script>
+export default {
+  name: 'Message',
+  data() {
+    return {
+      skeletonShow: false,
+      mescroll: null,
+      mescrollTop: 0,
+      upOption: {
+        empty: {
+          tip: this.$t('postsEmptyTip'),
+        },
+        textNoMore: this.$t('postsNoMore'),
+      },
+      dataList: [
+        {
+          avatar_url: 'https://techcenter-common-storage-1251001122.cos.ap-shanghai.myqcloud.com/gamesh5/yxs.png',
+          name: '真还传',
+          brief: '今天天气好晴朗',
+          haveNewMessage: true,
+        },
+      ],
+    }
+  },
+  onLoad() {
+    this.mescrollTop = uni.getSystemInfoSync().statusBarHeight + 44 + 'px'
+    // #ifdef H5
+    this.mescrollTop = '44px'
+    // #endif
+  },
+  methods: {
+    onMescrollInit(mescroll) {
+      this.mescroll = mescroll
+    },
+    downCallback(mescroll) {
+      mescroll.resetUpScroll()
+    },
+    upCallback() {
+      this.mescroll.endBySize(
+        this.dataList.length,
+        this.dataList.length,
+      )
+      // this.request
+      //   .## ##({
+      //     current_page: mescroll.num ? mescroll.num : 1,
+      //   })
+      //   .then((res) => {
+      //     let dataList = []
+      //     if (mescroll.num === 1) {
+      //       dataList = [] // 如果是第一页需手动置空列表
+      //     } else {
+      //       dataList = this.dataList
+      //     }
+      //     dataList = dataList.concat(res.data.posts)
+      //     this.dataList = dataList
+      //     this.mescroll.endBySize(
+      //       this.homePostList.length,
+      //       res.data.page_info.total_count,
+      //     )
+      //     this.skeletonShow = false
+      //   })
+      //   .catch(() => {
+      //     this.skeletonShow = false
+      //     this.mescroll.endBySize(
+      //       this.dataList.length,
+      //       this.dataList.length,
+      //     )
+      //   })
+    },
+  },
+}
+</script>
+
+<style>
+</style>

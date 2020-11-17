@@ -1,0 +1,10 @@
+{
+  "pages": [
+    {
+      "path": "pages/homepage/homepage",
+      "style": {
+        "navigationBarTitleText": "使用示意"
+      }
+    }
+  ]
+}
