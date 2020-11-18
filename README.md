@@ -95,13 +95,13 @@ export default {
 ```
 
 ## 属性
-| 属性名     | 类型   | 默认值  | 说明                                      |
-| ---------- | ------ | ------- | ----------------------------------------- |
-| size       | String | default | 组件大小，提供两个大小，`default`和`mini` |
-| selections | Array  | []      | 传入选项的数组                            |
-| valueKey   | String | value   | 传入数组选项值绑定的key                   |
-| labelKey   | String | label   | 传入数组选项显示的文字key                 |
-| max        | Number | 1       | 最多能选几个选项                          |
+| 属性名     | 类型   | 默认值  | 说明                                                                  |
+| ---------- | ------ | ------- | --------------------------------------------------------------------- |
+| size       | String | default | 组件大小，提供两个大小，`default`和`mini`                             |
+| selections | Array  | []      | 传入选项的数组，如果想禁用某个选项，在该选项下加入`disabled:true`即可 |
+| valueKey   | String | value   | 传入数组选项值绑定的key                                               |
+| labelKey   | String | label   | 传入数组选项显示的文字key                                             |
+| max        | Number | 1       | 最多能选几个选项                                                      |
 
 
 ## 方法
