@@ -9,11 +9,13 @@
       <view
         class="selection"
         :class="[size, selection.disabled ? 'selection-disabled' : '']"
-        :style="`background-color: ${
-          selection.selected ? color : ''
-        }; border: ${
-          selection.selected ? '1upx solid ' + color : '1upx solid #666'
-        }; color:${selection.selected ? 'white' : '#666'};`"
+        :style="{
+          backgroundColor: selection.selected ? color : '',
+          border: selection.selected
+            ? '1rpx solid ' + color
+            : '1rpx solid #666',
+          color: selection.selected ? 'white' : '#666',
+        }"
         :key="selection[valueKey]"
         @tap="handleTapSelection(selection)"
       >
@@ -108,13 +110,15 @@ export default {
     },
     handleTapSelection(selection) {
       if (selection.disabled) return
-      if (this.max === 1 && this.selected.length === 1) { // 处理单选
+      if (this.max === 1 && this.selected.length === 1) {
+        // 处理单选
         this.realSelections.forEach((selection) => {
           if (selection[this.valueKey] === this.selected[0]) {
             selection.selected = false
           }
         })
-      } else if (this.max > 1 && this.selected.length === this.max) { // 处理多选
+      } else if (this.max > 1 && this.selected.length === this.max) {
+        // 处理多选
         if (this.selected.indexOf(selection[this.valueKey]) === -1) {
           this.$emit('onOverSelect', this.selected)
           return
