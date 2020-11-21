@@ -28,10 +28,6 @@
 <script>
 export default {
   name: 'ScrollSelect',
-  model: {
-    prop: 'selected',
-    event: 'on-change',
-  },
   props: {
     selections: {
       type: Array,

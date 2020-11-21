@@ -13,7 +13,6 @@ components: {
 ```
 
 #### 3. 使用
-支持用`v-model`绑定值，必须是数组。
 ```js
 <template>
   <view>
@@ -22,7 +21,7 @@ components: {
       valueKey="id"
       labelKey="title"
       :selections="selections"
-      v-model="result"
+      :selected="result"
       :max="2"
       @change="onChange"
       @onSelectEnd="onSelectEnd"
@@ -74,12 +73,15 @@ export default {
   onShow() {},
   methods: {
     onChange(e) {
+      this.result = e
       this.toast(`点击结束#onChange#：${e}`)
     },
     onSelectEnd(e) {
+      this.result = e
       this.toast(`选择结束#onSelectEnd#：${e}`)
     },
     onOverSelect(e) {
+      this.result = e
       this.toast(`点多了！！#onOverSelect#：${e}`)
     },
     toast(message) {

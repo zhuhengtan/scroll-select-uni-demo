@@ -5,7 +5,7 @@
       valueKey="id"
       labelKey="title"
       :selections="selections"
-      v-model="result"
+      :selected="result"
       :max="2"
       @on-change="onChange"
       @on-select-end="onSelectEnd"
@@ -57,12 +57,15 @@ export default {
   onShow() {},
   methods: {
     onChange(e) {
+      this.result = e
       this.toast(`点击结束#onChange#：${e}`)
     },
     onSelectEnd(e) {
+      this.result = e
       this.toast(`选择结束#onSelectEnd#：${e}`)
     },
     onOverSelect(e) {
+      this.result = e
       this.toast(`点多了！！#onOverSelect#：${e}`)
     },
     toast(message) {
