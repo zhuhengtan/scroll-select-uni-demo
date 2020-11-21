@@ -7,9 +7,9 @@
       :selections="selections"
       v-model="result"
       :max="2"
-      @change="onChange"
-      @onSelectEnd="onSelectEnd"
-      @onOverSelect="onOverSelect"
+      @on-change="onChange"
+      @on-select-end="onSelectEnd"
+      @on-over-select="onOverSelect"
     />
   </view>
 </template>

@@ -30,7 +30,7 @@ export default {
   name: 'ScrollSelect',
   model: {
     prop: 'selected',
-    event: 'change',
+    event: 'on-change',
   },
   props: {
     selections: {
@@ -120,22 +120,25 @@ export default {
       } else if (this.max > 1 && this.selected.length === this.max) {
         // 处理多选
         if (this.selected.indexOf(selection[this.valueKey]) === -1) {
-          this.$emit('onOverSelect', this.selected)
+          this.$emit('on-over-select', this.selected)
           return
         }
       }
       selection.selected = !selection.selected
-      this.$forceUpdate()
       const selected = []
       this.realSelections.forEach((selection) => {
         if (selection.selected) {
           selected.push(selection[this.valueKey])
         }
       })
-      this.$emit('change', selected)
+      this.$emit('on-change', selected)
       if (selected.length === this.max) {
-        this.$emit('onSelectEnd', selected)
+        this.$emit('on-select-end', selected)
       }
+      this.$forceUpdate()
+    },
+    onChange(e) {
+      this.$set(this.selected, e)
     },
   },
 }
